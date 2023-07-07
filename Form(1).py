@@ -28,7 +28,7 @@ def run_query(query):
     return rows
 
 sheet_url = st.secrets["private_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{"https://docs.google.com/spreadsheets/d/14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA/edit?usp=sharing}"')
+rows = run_query(f'SELECT * FROM "{"https://docs.google.com/spreadsheets/d/14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA/edit?usp=sharing"}"')
 
 # Print results.
 for row in rows:

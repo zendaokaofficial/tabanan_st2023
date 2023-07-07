@@ -17,7 +17,9 @@ client = gspread.authorize(creds)
 
 # Find a workbook by name and open the first sheet
 # Make sure you use the right name here.
-sheet = client.open("db ST2023").worksheet('Sheet1')
+sheet = client.open("db ST2023")
+worksheet1 = sheet.worksheet('Sheet1')
+sheet.values_append('Sheet1', {'valueInputOption': 'RAW'}, {'values': pd.DataFrame(['a', 'b', 'c'])})
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"

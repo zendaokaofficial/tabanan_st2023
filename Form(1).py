@@ -2,6 +2,7 @@ from logging import PlaceHolder
 import streamlit as st
 import pandas as pd
 from datetime import date
+import webbrowser
 
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"
 url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
@@ -59,6 +60,4 @@ if __name__ == "__main__":
                 if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
                     if st.button('Submit'):
                         st.success(f'Kecamatan : {FirstFilter}, Desa : {len(JumlahRuta)}', icon="✅")
-
-                        row = [name,adr,age,symptoms,gender,email]
-                        sh.append_row(row)
+                        webbrowser.open_new_tab(url)

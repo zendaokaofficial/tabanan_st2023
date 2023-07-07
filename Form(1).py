@@ -11,7 +11,7 @@ scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/au
 creds = ServiceAccountCredentials.from_json_keyfile_name('st2023-tabanan-5595d78f9fe7.json', scope)
 client = gspread.authorize(creds)
  
-sh = client.open('https://docs.google.com/spreadsheets/d/14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA/edit#gid=0')#.worksheet('Sheet1')  
+#sh = client.open('https://docs.google.com/spreadsheets/d/14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA/edit#gid=0')#.worksheet('Sheet1')  
 #row = [name,adr,age,symptoms,gender,email]
 #sh.append_row(row)
 

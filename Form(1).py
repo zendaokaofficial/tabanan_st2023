@@ -2,15 +2,12 @@ from logging import PlaceHolder
 import streamlit as st
 import pandas as pd
 from datetime import date
-from streamlit.server.server import Server
+from streamlit_js_eval import streamlit_js_eval
 
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"
 url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
 df = pd.read_csv(url_1, header=0, )
-
-def refresh():
-    Server.get_current()._reloader.reload()
     
 if __name__ == "__main__":
     st.markdown("<h1 style='text-align: center; color: green;'>Isikan Form Pelaporan</h1>", unsafe_allow_html=True)
@@ -63,5 +60,5 @@ if __name__ == "__main__":
                 if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
                     if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
                         st.success(f'Kecamatan : {FirstFilter}, Desa : {len(JumlahRuta)}', icon="✅")
-                        refresh()
+                        streamlit_js_eval(js_expressions="parent.window.location.reload()")
                         #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')

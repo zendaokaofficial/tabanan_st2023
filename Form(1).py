@@ -22,7 +22,7 @@ sheet_url = st.secrets["private_gsheets_url"]
 client = gspread.authorize(credentials)
     
 #Create one workbook name it 'TestSheet' and at the bottom rename Sheet1 as 'names'
-sh = client.open("https://docs.google.com/spreadsheets/d/14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA/edit#gid=0").worksheet('Sheet1') 
+sh = client.open("db ST2023").worksheet('Sheet1') 
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"

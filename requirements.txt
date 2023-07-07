@@ -2,3 +2,4 @@ streamlit_js_eval
 gspread
 oauth2client
 google.oauth2
+gsheetsdb

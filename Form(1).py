@@ -4,18 +4,29 @@ from datetime import date
 import time
 from streamlit_js_eval import streamlit_js_eval
 
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+import streamlit as st
+from google.oauth2 import service_account
+from gsheetsdb import connect
 
-creds = ServiceAccountCredentials.from_json_keyfile_name('st2023-tabanan-5595d78f9fe7.json', scope)
-client = gspread.authorize(creds)
+# Create a connection object.
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=[
+        "https://www.googleapis.com/auth/spreadsheets",
+    ],
+)
+conn = connect(credentials=credentials)
+
+# Perform SQL query on the Google Sheet.
+# Uses st.cache_data to only rerun when the query changes or after 10 min.
+@st.cache_data(ttl=600)
+def run_query(query):
+    rows = conn.execute(query, headers=1)
+    rows = rows.fetchall()
+    return rows
 
 sheet_url = st.secrets["private_gsheets_url"]
-
-sh = client.open(sheet_url)#.worksheet('Sheet1')  
-#row = [name,adr,age,symptoms,gender,email]
-#sh.append_row(row)
+rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"

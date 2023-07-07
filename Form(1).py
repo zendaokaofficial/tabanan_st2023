@@ -8,7 +8,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 
-creds = ServiceAccountCredentials.from_json_keyfile_name('testingdb-b6d4d-d0a2646c069a.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('st2023-tabanan-5595d78f9fe7.json', scope)
 client = gspread.authorize(creds)
  
 sh = client.open('https://docs.google.com/spreadsheets/d/14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA/edit?usp=sharing').worksheet('Sheet1')  

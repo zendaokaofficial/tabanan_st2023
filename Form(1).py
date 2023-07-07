@@ -6,6 +6,7 @@ from streamlit_js_eval import streamlit_js_eval
 import gspread
 import streamlit as st
 from google.oauth2 import service_account
+from oauth2client.service_account import ServiceAccountCredentials
 from gsheetsdb import connect
 
 # Create a connection object.

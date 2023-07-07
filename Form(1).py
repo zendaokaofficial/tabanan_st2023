@@ -19,7 +19,6 @@ client = gspread.authorize(creds)
 # Make sure you use the right name here.
 sheet = client.open("db ST2023")
 worksheet1 = sheet.worksheet('Sheet1')
-worksheet1.append_row(['a', 'b', 'c'])
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"
@@ -78,6 +77,7 @@ if __name__ == "__main__":
                 if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
                     if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
                         st.success(f'Data berhasil tersubmit', icon="✅")
+                        worksheet1.append_row([JumlahL2, JumlahL2kePML, SudahSelesai])
                         time.sleep(3)
                         streamlit_js_eval(js_expressions="parent.window.location.reload()")
                         #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')

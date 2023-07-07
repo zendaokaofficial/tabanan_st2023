@@ -3,8 +3,9 @@ import pandas as pd
 from datetime import date
 import time
 from streamlit_js_eval import streamlit_js_eval
-from google-auth import service_account
 from gsheetsdb import connect
+from google.oauth2 import service_account
+
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"

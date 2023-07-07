@@ -3,37 +3,23 @@ import pandas as pd
 from datetime import date
 import time
 from streamlit_js_eval import streamlit_js_eval
-from gsheetsdb import connect
-from google.oauth2 import service_account
 
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+
+creds = ServiceAccountCredentials.from_json_keyfile_name('testingdb-b6d4d-d0a2646c069a.json', scope)
+client = gspread.authorize(creds)
+ 
+sh = client.open('https://docs.google.com/spreadsheets/d/14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA/edit?usp=sharing').worksheet('Sheet1')  
+#row = [name,adr,age,symptoms,gender,email]
+#sh.append_row(row)
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"
 url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
 df = pd.read_csv(url_1, header=0, )
-
-## Membaca db untuk CRUD
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
-    ],
-)
-conn = connect(credentials=credentials)
-
-@st.cache_data(ttl=600)
-def run_query(query):
-    rows = conn.execute(query, headers=1)
-    rows = rows.fetchall()
-    return rows
-
-sheet_url = st.secrets["private_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{"https://docs.google.com/spreadsheets/d/14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA/edit?usp=sharing"}"')
-
-# Print results.
-for row in rows:
-    st.write(f"{row.name} has a :{row.pet}:")
 
 if __name__ == "__main__":
     st.markdown("<h1 style='text-align: center; color: green;'>Isikan Form Pelaporan</h1>", unsafe_allow_html=True)

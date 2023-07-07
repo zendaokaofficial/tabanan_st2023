@@ -58,6 +58,6 @@ if __name__ == "__main__":
                 SudahIsiRepo = st.selectbox("Apakah Sudah Isi Repo", ["PILIH", "Sudah", "Belum"], 0)
 
                 if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
-                    if st.button('Submit'):
+                    if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
                         st.success(f'Kecamatan : {FirstFilter}, Desa : {len(JumlahRuta)}', icon="✅")
-                        st_javascript(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')
+                        #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')

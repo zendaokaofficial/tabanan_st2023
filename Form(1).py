@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import date
 import time
 from streamlit_js_eval import streamlit_js_eval
-from google.oauth2 import service_account
+from google-auth import service_account
 from gsheetsdb import connect
 
 ## Membaca db asal

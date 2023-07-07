@@ -9,15 +9,14 @@ from google.oauth2 import service_account
 from gsheetsdb import connect
 
 # Create a connection object.
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=["https://www.googleapis.com/auth/spreadsheets"],
-)
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+creds = ServiceAccountCredentials.from_json_keyfile_name('my-drive.json', scope)
+client = gspread.authorize(creds)
 
-client = gspread.authorize(credentials)
-    
-#Create one workbook name it 'TestSheet' and at the bottom rename Sheet1 as 'names'
-sh = client.open("db ST2023")
+# Find a workbook by name and open the first sheet
+# Make sure you use the right name here.
+sheet = client.open("db ST2023").Sheet1
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"

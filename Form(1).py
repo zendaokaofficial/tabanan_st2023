@@ -11,7 +11,7 @@ from gsheetsdb import connect
 # Create a connection object.
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('https://github.com/zendaokaofficial/tabanan_st2023/blob/main/st2023-tabanan-5595d78f9fe7.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('st2023-tabanan-5595d78f9fe7.json', scope)
 client = gspread.authorize(creds)
 
 # Find a workbook by name and open the first sheet

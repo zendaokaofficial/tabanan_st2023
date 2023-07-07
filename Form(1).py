@@ -15,14 +15,11 @@ credentials = service_account.Credentials.from_service_account_info(
         "https://www.googleapis.com/auth/spreadsheets",
     ],
 )
-conn = connect(credentials=credentials)
-
-sheet_url = st.secrets["private_gsheets_url"]
 
 client = gspread.authorize(credentials)
     
 #Create one workbook name it 'TestSheet' and at the bottom rename Sheet1 as 'names'
-sh = client.open("db ST2023").worksheet('Sheet1') 
+sh = client.open("db ST2023")
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"

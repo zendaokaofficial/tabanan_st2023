@@ -2,5 +2,5 @@ streamlit_js_eval
 gspread
 oauth2client
 google-api-python-client
-google.oauth2
+google.oauth2 == 2.0
 gsheetsdb

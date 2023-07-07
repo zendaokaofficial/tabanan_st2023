@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "st2023-tabanan",
+  "private_key_id": "5595d78f9fe7c8cb2bbc72c371ca36f90c3f8676",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC+tJBr6jHuGBqk\nkeBGJyikT6U77iiGnx5LuqvZWlo/rwyv5FZzpA7hkWA1Jf1rFiMj38xev9O4r0N8\n6832a3u6Cxwyk1ExgcF8XW1p6d/n+0GdKJu/YReovgeCjoxkm7gJJnHxvDjAiqNG\nNLgjzLISMaa4suh34KN7xVRFPQitDdc2di/1KgkWQzWW2Znrypx/UZEJ6rJDB7La\nfoCakOv2daXY41oZwMM67EjVgf4IjPBO6xrgY4FumgqEqtUctMffTBZS1pDWWG3W\n7lfeQhdkYds7pj6eRj3XN5CawYMON80hlVUNqcH0LsqVTNWJ6/UZUmTeMk25exYO\nKyx0bxn9AgMBAAECggEABydp5Yp3Dgn8ceEBC1CrvyI3vhxMi+RLNCcQDErN6Oat\nsKl9rr/gSQj1lXjT3WEKt21NUt6aWCrG+tgztUNJ9Gw3RhRtrtBBzGMK2DbMTf0I\ndJdR5GeFhjB+wqCLVrjaugklrB5V+K8aueb/Y2Rp57HSIcqgWuLj7yAzbZeBDFDQ\nhOOVtCBsnxB9bREi8f5H1c802rFA4hG45FdAYreoogQgOyTol8ahzgJQX9iA+1pR\nyjQFznkySVFLw3azhjs5Npn5OvNBPjDuRxzjHPWlCMNThucUBkPfFWXyyvAYBCIh\nmmhsFrygPQeGti0Wy95eJpGNG28xfkimMZ+wxIuyoQKBgQDjWkvLVlkF3dau+EeR\nY0/lkRdWK1DQsjrpqHhwRiS1jjVPOueFqovrPWNcxG9hpIaVQ5f9HEcc/OCXqOk0\n+y3VIbyl27y6Ig4xWVmd3jKYHqoZg+i4iE6xh+4dnNYv9IpUWVBytgmLFDkRAgKN\nIxhX1enxxwQ0H0ppXl3VkIxgsQKBgQDWvCKgNkISAgFTlyu5zGZSv+LMCQWyxz+K\nI5ZCG0Bj11Rbe6iok7tr4+go6cbgFtWOezr1GrGHiLpt7/YA35aFbHoO9PEatLA7\nwdHuPJWdiAKYTYStW8vHHT/0H4Mza+x/O/QHV+p16JMxt/bToDyFlKjIX5H3gKnv\nP52blyWBDQKBgEWJn7cgwPfPY1N+8vzgAFb56sZbV0uNyAEhmzzT53R0e4+xN5El\nmcgorZR5LIwT82oCE6HCHWobWmJosnOXA+y1derQ68eOlQK5DnT/uj/W2TYWp36R\nimg4aDc8ejKOvCSScM21KfQVCmNOVxNuEYsEDZr6wSlkDLFvwImKvbTxAoGAGJco\n2/H6tPc30avBHSDUIuvIfBcYaPW6SAZ1QZK/V++jwGoz0UJBt0Q9JNpIpQbYY92m\nzcTFycCVoNtW75irMxJOFAJmzekdOWqjsMWNWKHnsitGY1fcySuHVFx7eNsGFTf3\nZRPjTKdam9n2URvLcnyoq3GOVKqOS1CcquGvMM0CgYAR7IksNjWTNlir85f1SDI0\nWEVBoKXO1fuftZ3Oe9pX9qEeQFps8PMxzI5Mzw5nuwhGEJP2rnMPCeI9/XI49Csp\nsQZVaRLdurmyzH/Ob/mSyHHG4phfT8WPJFfjpxyyRqdv6TXggaXnu+J+4eXLQJJg\nK7p/mofKvZEPwit9RrLILA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "progress-st2023@st2023-tabanan.iam.gserviceaccount.com",
+  "client_id": "105085498599124851684",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/progress-st2023%40st2023-tabanan.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

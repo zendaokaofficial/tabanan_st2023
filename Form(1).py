@@ -60,4 +60,4 @@ if __name__ == "__main__":
                 if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
                     if st.button('Submit'):
                         st.success(f'Kecamatan : {FirstFilter}, Desa : {len(JumlahRuta)}', icon="✅")
-                        webbrowser.open_new_tab("https://terimakasih.streamlit.app/")
+                        st.experimental_rerun()

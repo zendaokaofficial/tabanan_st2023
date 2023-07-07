@@ -1,1 +1,2 @@
 streamlit_js_eval
+gspread

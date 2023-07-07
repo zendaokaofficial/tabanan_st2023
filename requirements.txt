@@ -1,3 +1,4 @@
 streamlit_js_eval
 gspread == 0.6.2
 gsheetsdb
+oauth2client

@@ -25,11 +25,12 @@ sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_
 url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
 df = pd.read_csv(url_1, header=0, )
+hari = date.today()
 
 if __name__ == "__main__":
     st.markdown("<h1 style='text-align: center; color: green;'>Isikan Form Pelaporan</h1>", unsafe_allow_html=True)
 
-    st.markdown(f"<h3 style='text-align: center; color: green;'>Tanggal: {date.today()}</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3 style='text-align: center; color: green;'>Tanggal: {hari}</h3>", unsafe_allow_html=True)
 
     lstKecamatan = list(df["Nama Kecamatan"].unique())
     lstKecamatan.insert(0, "PILIH KECAMATAN")
@@ -56,28 +57,31 @@ if __name__ == "__main__":
 
             if ThirdFilter != "PILIH SLS":
 
-                #df4 = df3[df3["Nama SLS" == ThirdFilter]]
+                df4 = df3[df3["Nama SLS" == ThirdFilter]]
 
-                #lstPPL = ["PILIH NAMA PPL"]
+                lstPPL = list(df4["Nama PPL"].unique())
+                lstPPL.insert(0, "PILIH PPL")
 
-                #ForthFilter = st.selectbox("Nama PPL", lstPPL)
+                ForthFilter = st.selectbox("Nama PPL", lstPPL)
 
-                JumlahRuta = st.text_input('Jumlah Ruta', )
+                if ForthFilter != "PILIH PPL":
 
-                JumlahL2 = st.text_input('Jumlah Dokumen L2', )
+                    JumlahRuta = st.text_input('Jumlah Ruta', )
 
-                JumlahL2kePML = st.text_input('Jumlah Dokumen L2 ke PML', )
+                    JumlahL2 = st.text_input('Jumlah Dokumen L2', )
 
-                JumlahL2keKoseka = st.text_input('Jumlah Dokumen L2 ke Koseka', )
+                    JumlahL2kePML = st.text_input('Jumlah Dokumen L2 ke PML', )
 
-                SudahSelesai = st.selectbox("Apakah Sudah Selesai", ["PILIH", "Sudah", "Belum"], 0)
+                    JumlahL2keKoseka = st.text_input('Jumlah Dokumen L2 ke Koseka', )
 
-                SudahIsiRepo = st.selectbox("Apakah Sudah Isi Repo", ["PILIH", "Sudah", "Belum"], 0)
+                    SudahSelesai = st.selectbox("Apakah Sudah Selesai", ["PILIH", "Sudah", "Belum"], 0)
 
-                if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
-                    if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
-                        st.success(f'Data berhasil tersubmit', icon="✅")
-                        worksheet1.append_row([JumlahL2, JumlahL2kePML, SudahSelesai])
-                        time.sleep(3)
-                        streamlit_js_eval(js_expressions="parent.window.location.reload()")
-                        #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')
+                    SudahIsiRepo = st.selectbox("Apakah Sudah Isi Repo", ["PILIH", "Sudah", "Belum"], 0)
+
+                    if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
+                        if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
+                            st.success(f'Data berhasil tersubmit', icon="✅")
+                            worksheet1.append_row([hari, FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahL2, JumlahL2kePML, SudahSelesai, SudahIsiRepo])
+                            time.sleep(3)
+                            streamlit_js_eval(js_expressions="parent.window.location.reload()")
+                            #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')

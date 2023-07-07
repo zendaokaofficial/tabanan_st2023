@@ -28,6 +28,8 @@ def run_query(query):
 sheet_url = st.secrets["private_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
+st.write(rows)
+
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"
 url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')

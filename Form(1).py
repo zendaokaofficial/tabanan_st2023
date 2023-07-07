@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import date
 import time
 from streamlit_js_eval import streamlit_js_eval
-
+import gspread
 import streamlit as st
 from google.oauth2 import service_account
 from gsheetsdb import connect
@@ -17,18 +17,12 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 conn = connect(credentials=credentials)
 
-# Perform SQL query on the Google Sheet.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def run_query(query):
-    rows = conn.execute(query, headers=1)
-    rows = rows.fetchall()
-    return rows
-
 sheet_url = st.secrets["private_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
-st.write(rows)
+client = gspread.authorize(credentials)
+    
+#Create one workbook name it 'TestSheet' and at the bottom rename Sheet1 as 'names'
+sh = client.open("private_gsheets_url").worksheet('Sheet1') 
 
 ## Membaca db asal
 sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_aIt6w_BP-4hU3Sjg/edit#gid=0"

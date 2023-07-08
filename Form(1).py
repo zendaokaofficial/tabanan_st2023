@@ -79,8 +79,6 @@ if __name__ == "__main__":
 
                     SudahSelesai = st.selectbox("Apakah Sudah Selesai", ["PILIH", "Sudah", "Belum"], 0)
 
-                    SudahIsiRepo == ""
-
                     if (SudahSelesai == "Sudah"):
                         SudahIsiRepo = st.selectbox("Apakah Sudah Isi Repo", ["PILIH", "Sudah", "Belum"], 0)
                         if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):

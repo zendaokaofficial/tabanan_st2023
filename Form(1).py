@@ -10,7 +10,9 @@ from oauth2client.service_account import ServiceAccountCredentials
 from gsheetsdb import connect
 import datetime
 import json
+import pytz
 
+tzInfo = pytz.timezone('Asia/Bangkok')
 # Create a connection object.
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
@@ -82,7 +84,7 @@ if __name__ == "__main__":
                     if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
                         if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
                             st.success(f'Data berhasil tersubmit', icon="✅")
-                            worksheet1.append_row([datetime.datetime.today().astimezone().isoformat(), FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahL2, JumlahL2kePML, SudahSelesai, SudahIsiRepo])
+                            worksheet1.append_row([datetime.datetime.now(tz=tzInfo).isoformat(), FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahL2, JumlahL2kePML, SudahSelesai, SudahIsiRepo])
                             time.sleep(3)
                             streamlit_js_eval(js_expressions="parent.window.location.reload()")
                             #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')

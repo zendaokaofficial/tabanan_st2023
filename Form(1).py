@@ -82,7 +82,7 @@ if __name__ == "__main__":
                     if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
                         if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
                             st.success(f'Data berhasil tersubmit', icon="✅")
-                            worksheet1.append_row([datetime.datetime.today().isoformat(), FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahL2, JumlahL2kePML, SudahSelesai, SudahIsiRepo])
+                            worksheet1.append_row([datetime.datetime.today().astimezone().isoformat(), FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahL2, JumlahL2kePML, SudahSelesai, SudahIsiRepo])
                             time.sleep(3)
                             streamlit_js_eval(js_expressions="parent.window.location.reload()")
                             #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')

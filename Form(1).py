@@ -26,7 +26,6 @@ url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
 df = pd.read_csv(url_1, header=0, )
 hari = date.today()
-print(df)
 
 if __name__ == "__main__":
     st.markdown("<h1 style='text-align: center; color: green;'>Isikan Form Pelaporan</h1>", unsafe_allow_html=True)
@@ -80,7 +79,7 @@ if __name__ == "__main__":
                     if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
                         if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
                             st.success(f'Data berhasil tersubmit', icon="✅")
-                            worksheet1.append_row([hari, FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahL2, JumlahL2kePML, SudahSelesai, SudahIsiRepo])
+                            worksheet1.append_row(["coba dulu tanggalnya nanti", FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahL2, JumlahL2kePML, SudahSelesai, SudahIsiRepo])
                             time.sleep(3)
                             streamlit_js_eval(js_expressions="parent.window.location.reload()")
                             #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')

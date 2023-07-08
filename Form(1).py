@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
             if ThirdFilter != "PILIH SLS":
 
-                df4 = df3[df3["Nama SLS"] == ThirdFilter]]
+                df4 = df3[df3["Nama SLS"] == ThirdFilter]
 
                 lstPPL = list(df4["Nama PPL"].unique())
                 lstPPL.insert(0, "PILIH PPL")

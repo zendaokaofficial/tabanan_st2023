@@ -31,8 +31,6 @@ print(df)
 if __name__ == "__main__":
     st.markdown("<h1 style='text-align: center; color: green;'>Isikan Form Pelaporan</h1>", unsafe_allow_html=True)
 
-    st.markdown(f"<h3 style='text-align: center; color: green;'>Tanggal: {hari}</h3>", unsafe_allow_html=True)
-
     lstKecamatan = list(df["Nama Kecamatan"].unique())
     lstKecamatan.insert(0, "PILIH KECAMATAN")
               
@@ -58,7 +56,7 @@ if __name__ == "__main__":
 
             if ThirdFilter != "PILIH SLS":
 
-                df4 = df3[df3["Nama SLS" == ThirdFilter]]
+                df4 = df3[df3["Nama SLS"] == ThirdFilter]]
 
                 lstPPL = list(df4["Nama PPL"].unique())
                 lstPPL.insert(0, "PILIH PPL")

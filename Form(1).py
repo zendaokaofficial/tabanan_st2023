@@ -26,11 +26,12 @@ url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
 df = pd.read_csv(url_1, header=0, )
 hari = date.today()
+print(df)
 
 if __name__ == "__main__":
     st.markdown("<h1 style='text-align: center; color: green;'>Isikan Form Pelaporan</h1>", unsafe_allow_html=True)
 
-    st.markdown(f"<h3 style='text-align: center; color: green;'>Tanggal: </h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3 style='text-align: center; color: green;'>Tanggal: {hari}</h3>", unsafe_allow_html=True)
 
     lstKecamatan = list(df["Nama Kecamatan"].unique())
     lstKecamatan.insert(0, "PILIH KECAMATAN")

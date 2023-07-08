@@ -29,6 +29,7 @@ hari = date.today()
 
 if __name__ == "__main__":
     st.markdown("<h1 style='text-align: center; color: green;'>Isikan Form Pelaporan</h1>", unsafe_allow_html=True)
+    st.subheader(f"Tanggal: {hari}")
 
     lstKecamatan = list(df["Nama Kecamatan"].unique())
     lstKecamatan.insert(0, "PILIH KECAMATAN")

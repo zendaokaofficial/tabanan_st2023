@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-from st_aggrid import AgGrid, JsCode
-from st_aggrid.grid_options_builder import GridOptionsBuilder
 from streamlit_extras.metric_cards import style_metric_cards
 
 sheet_id = "14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA"

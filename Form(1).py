@@ -62,37 +62,46 @@ if __name__ == "__main__":
 
                 df4 = df3[df3["Nama SLS"] == ThirdFilter]
 
-                lstPPL = list(df4["Nama PPL"].unique())
-                lstPPL.insert(0, "PILIH PPL")
+                lstIDSLS = list(df4["ID SLS"].unique())
+                lstIDSLS.insert(0, "PILIH ID SLS")
 
-                ForthFilter = st.selectbox("Nama PPL", lstPPL)
+                ThirdForthFilter = st.selectbox("ID SLS", lstIDSLS)
 
-                if ForthFilter != "PILIH PPL":
+                if ThirdForthFilter != "PILIH ID SLS":
+                     
+                    df5 = df4[df4["ID SLS"] == ThirdForthFilter]
 
-                    JumlahRuta = st.text_input('Jumlah Ruta Tercacah', )
+                    lstNamaPPL = list(df5["Nama PPL"].unique())
+                    lstNamaPPL.insert(0, "PILIH NAMA PPL")
 
-                    JumlahL2 = st.text_input('Jumlah Dokumen L2', )
+                    ForthFilter = st.selectbox("Nama PPL", lstNamaPPL)
 
-                    JumlahL2kePML = st.text_input('Jumlah Dokumen L2 ke PML', )
+                    if ForthFilter != "PILIH PPL":
 
-                    JumlahL2keKoseka = st.text_input('Jumlah Dokumen L2 ke Koseka', )
+                        JumlahRuta = st.text_input('Jumlah Ruta Tercacah', )
 
-                    SudahSelesai = st.selectbox("Apakah Sudah Selesai", ["PILIH", "Sudah", "Belum"], 0)
+                        JumlahL2 = st.text_input('Jumlah Dokumen L2', )
 
-                    if (SudahSelesai == "Sudah"):
-                        SudahIsiRepo = st.selectbox("Apakah Sudah Isi Repo", ["PILIH", "Sudah", "Belum"], 0)
-                        if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
-                                 if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
-                                     st.success(f'Data berhasil tersubmit', icon="✅")
-                                     worksheet1.append_row([datetime.datetime.now(tz=tzInfo).isoformat(), FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahRuta, JumlahL2, JumlahL2kePML, JumlahL2keKoseka, SudahSelesai, SudahIsiRepo])
-                                     time.sleep(3)
-                                     streamlit_js_eval(js_expressions="parent.window.location.reload()")
-                                     #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')
-                    else:
-                         if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH"):
-                                 if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
-                                     st.success(f'Data berhasil tersubmit', icon="✅")
-                                     worksheet1.append_row([datetime.datetime.now(tz=tzInfo).isoformat(), FirstFilter, SecondFilter, ThirdFilter, ForthFilter, JumlahRuta, JumlahL2, JumlahL2kePML, JumlahL2keKoseka, SudahSelesai])
-                                     time.sleep(3)
-                                     streamlit_js_eval(js_expressions="parent.window.location.reload()")
-                                     #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')
+                        JumlahL2kePML = st.text_input('Jumlah Dokumen L2 ke PML', )
+
+                        JumlahL2keKoseka = st.text_input('Jumlah Dokumen L2 ke Koseka', )
+
+                        SudahSelesai = st.selectbox("Apakah Sudah Selesai", ["PILIH", "Sudah", "Belum"], 0)
+
+                        if (SudahSelesai == "Sudah"):
+                            SudahIsiRepo = st.selectbox("Apakah Sudah Isi Repo", ["PILIH", "Sudah", "Belum"], 0)
+                            if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH" and SudahIsiRepo != "PILIH"):
+                                    if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
+                                        st.success(f'Data berhasil tersubmit', icon="✅")
+                                        worksheet1.append_row([datetime.datetime.now(tz=tzInfo).isoformat(), FirstFilter, SecondFilter, ThirdFilter, ThirdForthFilter, ForthFilter, JumlahRuta, JumlahL2, JumlahL2kePML, JumlahL2keKoseka, SudahSelesai, SudahIsiRepo])
+                                        time.sleep(3)
+                                        streamlit_js_eval(js_expressions="parent.window.location.reload()")
+                                        #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')
+                        else:
+                            if (len(JumlahRuta) != 0 and len(JumlahL2) != 0 and len(JumlahL2kePML) != 0 and len(JumlahL2keKoseka) != 0 and SudahSelesai != "PILIH"):
+                                    if st.button('Submit', "https://laporst2023-tabanan.streamlit.app/"):
+                                        st.success(f'Data berhasil tersubmit', icon="✅")
+                                        worksheet1.append_row([datetime.datetime.now(tz=tzInfo).isoformat(), FirstFilter, SecondFilter, ThirdFilter, ThirdForthFilter, ForthFilter, JumlahRuta, JumlahL2, JumlahL2kePML, JumlahL2keKoseka, SudahSelesai])
+                                        time.sleep(3)
+                                        streamlit_js_eval(js_expressions="parent.window.location.reload()")
+                                        #st.markdown(f'window.open("{"https://laporst2023-tabanan.streamlit.app/"}", "_blank");')

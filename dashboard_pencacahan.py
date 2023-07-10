@@ -117,5 +117,19 @@ elif FirstFilter != "PILIH KECAMATAN" and SecondFilter != "PILIH DESA":
     style_metric_cards(border_left_color = '#1E1E1E')
 
     df_show = df21[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
+    
+    # download button 2 to download dataframe as xlsx
+    with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+        # Write each dataframe to a different worksheet.
+        df_show.to_excel(writer, sheet_name='Sheet1', index=False)
+    
+        download2 = st.download_button(
+            label="Download data as Excel",
+            data=buffer,
+            file_name=f'{FirstFilter} - {SecondFilter}.xlsx',
+            mime='application/vnd.ms-excel'
+        )
     st.dataframe(df_show)
+    
+
     #df2 = df.groupby(["Kode Kecamatan", "Nama Kecamatan"])['Kondisi Terkini'].apply(lambda x: x.astype(int).sum())

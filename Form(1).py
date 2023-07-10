@@ -12,7 +12,7 @@ import datetime
 import json
 import pytz
 
-tzInfo = pytz.timezone('Asia/Bangkok')
+tzInfo = pytz.timezone('Asia/Hong_Kong')
 # Create a connection object.
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']

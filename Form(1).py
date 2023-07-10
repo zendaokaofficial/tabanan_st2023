@@ -29,6 +29,7 @@ sheet_url = "https://docs.google.com/spreadsheets/d/13BbpP9ox-XCo3xB74eTTG0oFoI_
 url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
 df = pd.read_csv(url_1, header=0, )
+df["ID SLS"] = df["ID SLS"].astype(str)
 hari = date.today()
 
 if __name__ == "__main__":

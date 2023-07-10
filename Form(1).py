@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
                 if ThirdForthFilter != "PILIH ID SLS":
 
-                    df5 = df4[df4["ID SLS"] == ThirdForthFilter
+                    df5 = df4[df4["ID SLS"] == ThirdForthFilter]
 
                     lstPPL = list(df5["Nama PPL"].unique())
                     lstPPL.insert(0, "PILIH PPL")

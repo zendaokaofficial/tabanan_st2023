@@ -63,17 +63,19 @@ if __name__ == "__main__":
 
                 df4 = df3[df3["Nama SLS"] == ThirdFilter]
 
-                lstIDSLS = df4[df4["ID SLS"].unique()]
+                lstIDSLS = list(df4["ID SLS"].unique())
                 lstIDSLS.insert(0, "PILIH ID SLS")
 
-                ThirdForthFilter = st.selectbox("ID SLS", lstIDSLS)
+                ThirdForthFilter = st.selectbox("ID SLS", lstIDSLS, 0)
 
                 if ThirdForthFilter != "PILIH ID SLS":
 
-                    lstPPL = list(df4["Nama PPL"].unique())
+                    df5 = df4[df4["ID SLS"] == ThirdForthFilter
+
+                    lstPPL = list(df5["Nama PPL"].unique())
                     lstPPL.insert(0, "PILIH PPL")
 
-                    ForthFilter = st.selectbox("Nama PPL", lstPPL)
+                    ForthFilter = st.selectbox("Nama PPL", lstPPL, 0)
 
                     if ForthFilter != "PILIH PPL":
 

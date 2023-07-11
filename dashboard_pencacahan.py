@@ -52,6 +52,7 @@ if FirstFilter == "PILIH KECAMATAN":
     st.bar_chart(df_tabel2, x = "Kecamatan", y = "Persentase")
 
     df_show = df[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
+    df_show.reset_index(drop=True, inplace=True)
     st.dataframe(df_show)
     #df2 = df.groupby(["Kode Kecamatan", "Nama Kecamatan"])['Kondisi Terkini'].apply(lambda x: x.astype(int).sum())
 elif FirstFilter != "PILIH KECAMATAN" and SecondFilter == "PILIH DESA":
@@ -84,6 +85,7 @@ elif FirstFilter != "PILIH KECAMATAN" and SecondFilter == "PILIH DESA":
     style_metric_cards(border_left_color = '#1E1E1E')
 
     df_show = df11[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
+    df_show.reset_index(drop=True, inplace=True)
     st.dataframe(df_show)
     #df2 = df.groupby(["Kode Kecamatan", "Nama Kecamatan"])['Kondisi Terkini'].apply(lambda x: x.astype(int).sum())
 
@@ -117,7 +119,7 @@ elif FirstFilter != "PILIH KECAMATAN" and SecondFilter != "PILIH DESA":
     style_metric_cards(border_left_color = '#1E1E1E')
 
     df_show = df21[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
-
+    df_show.reset_index(drop=True, inplace=True)
     st.dataframe(df_show)
     
 

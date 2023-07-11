@@ -7,6 +7,10 @@ sheet_id = "14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA"
 df = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=1460697118")
 df['ID SLS'] = df['ID SLS'].astype(str)
 
+@st.experimental_memo
+def convert_df(df):
+   return df.to_csv(index=False).encode('utf-8')
+    
 def highlight_survived(s):
     if s["Sudah Selesai"]:
         return ['background-color: green']*len(s) 
@@ -54,6 +58,16 @@ if FirstFilter == "PILIH KECAMATAN":
     df_show = df[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
     df_show.reset_index(drop=True, inplace=True)
     st.dataframe(df_show)
+
+    csv = convert_df(df_show)
+
+    st.download_button(
+       "Press to Download",
+       csv,
+       f"{FirstFilter}.csv",
+       "text/csv",
+       key='download-csv'
+    )
     #df2 = df.groupby(["Kode Kecamatan", "Nama Kecamatan"])['Kondisi Terkini'].apply(lambda x: x.astype(int).sum())
 elif FirstFilter != "PILIH KECAMATAN" and SecondFilter == "PILIH DESA":
     ## Widget 

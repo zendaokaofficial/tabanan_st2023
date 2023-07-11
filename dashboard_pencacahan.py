@@ -35,7 +35,7 @@ if FirstFilter == "PILIH KECAMATAN":
     ## Widget 
     col1, col2, col3 = st.columns(3)
     n = len(df)
-    p1 = np.nansum(df["Sudah Selesai"].to_numpy())
+    p1 = df["Sudah Selesai"].isna().sum()
     p2 = sum(df["Sudah Selesai"] == True)
     p3 = sum(df["Sudah Isi Repo"] == True)
     col1.metric(label = "Persentase SLS/Sub SLS Tercacah", value = f"{round((n - p1)/n * 100, 2)} %")
@@ -60,7 +60,7 @@ elif FirstFilter != "PILIH KECAMATAN" and SecondFilter == "PILIH DESA":
     df11 = df[df["Nama Kecamatan"] == FirstFilter]
     col1, col2, col3 = st.columns(3)
     n = len(df11)
-    p1 = np.nansum(df11["Sudah Selesai"].to_numpy())
+    p1 = df11["Sudah Selesai"].isna().sum()
     p2 = sum(df11["Sudah Selesai"] == True)
     p3 = sum(df11["Sudah Isi Repo"] == True)
     col1.metric(label = "Persentase SLS/Sub SLS Tercacah", value = f"{round((n - p1)/n * 100, 2)} %")
@@ -93,7 +93,7 @@ elif FirstFilter != "PILIH KECAMATAN" and SecondFilter != "PILIH DESA":
     df21 = df[(df["Nama Kecamatan"] == FirstFilter) & (df["Nama Desa"] == SecondFilter)]
     col1, col2, col3 = st.columns(3)
     n = len(df21)
-    p1 = np.nansum(df21["Sudah Selesai"].to_numpy())
+    p1 = df21["Sudah Selesai"].isna().sum()
     p2 = sum(df21["Sudah Selesai"] == True)
     p3 = sum(df21["Sudah Isi Repo"] == True)
     col1.metric(label = "Persentase SLS/Sub SLS Tercacah", value = f"{round((n - p1)/n * 100, 2)} %")

@@ -64,7 +64,7 @@ if FirstFilter == "PILIH KECAMATAN":
     st.download_button(
        "Press to Download",
        csv,
-       f"{FirstFilter}.csv",
+       f"Progres Kabupaten Tabanan.csv",
        "text/csv",
        key='download-csv'
     )

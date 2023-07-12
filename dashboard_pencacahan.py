@@ -156,7 +156,7 @@ elif FirstFilter != "PILIH KECAMATAN" and SecondFilter != "PILIH DESA":
     st.download_button(
        "Press to Download",
        csv,
-       f"{FirstFilter}.csv",
+       f"{FirstFilter} - {SecondFilter}.csv",
        "text/csv",
        key='download-csv'
     )

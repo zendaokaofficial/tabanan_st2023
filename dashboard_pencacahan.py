@@ -3,6 +3,8 @@ import numpy as np
 import streamlit as st
 from streamlit_extras.metric_cards import style_metric_cards
 
+code = '''Persentase diperoleh dari perhitungan Total Ruta Tercacah dibagi dengan Jumlah Prelist KK Tani Wilkerstat'''
+
 sheet_id = "14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA"
 df = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=1460697118")
 df['ID SLS'] = df['ID SLS'].astype(str)
@@ -46,6 +48,8 @@ if FirstFilter == "PILIH KECAMATAN":
     col2.metric(label = "Persentase SLS/Sub SLS Selesai", value = f"{round((p2)/n * 100, 2)} %")
     col3.metric(label = "Persentase SLS/Sub SLS Input Repo", value = f"{round((p3)/n * 100, 2)} %")
     style_metric_cards(border_left_color = '#1E1E1E')
+
+    st.code(code, language='python')
 
     ## Bar Chart
     df_tabel = df.groupby(["Kode Kecamatan", "Nama Kecamatan"])[['Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani']].agg('sum').reset_index()

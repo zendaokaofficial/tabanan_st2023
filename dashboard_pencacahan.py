@@ -49,8 +49,6 @@ if FirstFilter == "PILIH KECAMATAN":
     col3.metric(label = "Persentase SLS/Sub SLS Input Repo", value = f"{round((p3)/n * 100, 2)} %")
     style_metric_cards(border_left_color = '#1E1E1E')
 
-    st.code(code, language='python')
-
     ## Bar Chart
     df_tabel = df.groupby(["Kode Kecamatan", "Nama Kecamatan"])[['Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani']].agg('sum').reset_index()
     df_tabel["Persentase"] = round(df_tabel["Jumlah Ruta Tercacah"]/df_tabel["Jumlah Prelist KK Tani"] * 100, 2)
@@ -58,6 +56,8 @@ if FirstFilter == "PILIH KECAMATAN":
     df_tabel2["Kecamatan"] = df_tabel["Kode Kecamatan"].astype(str) + " - " + df_tabel["Nama Kecamatan"]
     df_tabel2["Persentase"] = df_tabel["Persentase"]
     st.bar_chart(df_tabel2, x = "Kecamatan", y = "Persentase")
+
+    st.code(code, language='python')
 
     df_show = df[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
     df_show.reset_index(drop=True, inplace=True)
@@ -95,6 +95,7 @@ elif FirstFilter != "PILIH KECAMATAN" and SecondFilter == "PILIH DESA":
     df_tabel2["Persentase"] = df_tabel["Persentase"]
     st.bar_chart(df_tabel2, x = "Desa", y = "Persentase")
 
+    st.code(code, language='python')
     ## Arus Dokumen
     col1, col2, col3 = st.columns(3)
     col1.metric(label = "Jumlah Dokumen L2", value = sum(df11["Jumlah Dokumen L2 Terpakai"]))
@@ -138,7 +139,7 @@ elif FirstFilter != "PILIH KECAMATAN" and SecondFilter != "PILIH DESA":
     df_tabel2["SLS"] = df_tabel["Kode SLS"].astype(str) + " - " + df_tabel["Nama SLS"]
     df_tabel2["Persentase"] = df_tabel["Persentase"]
     st.bar_chart(df_tabel2, x = "SLS", y = "Persentase")
-
+    st.code(code, language='python')
     ## Arus Dokumen
     col1, col2, col3 = st.columns(3)
     col1.metric(label = "Jumlah Dokumen L2", value = sum(df21["Jumlah Dokumen L2 Terpakai"]))

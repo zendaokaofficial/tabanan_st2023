@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
                     if ForthFilter != "PILIH PPL":
 
-                        JumlahRuta = st.text_input('Jumlah Ruta Tercacah', )
+                        JumlahRuta = st.text_input('Jumlah Rumah Tangga Usaha Pertanian Tercacah', )
 
                         JumlahL2 = st.text_input('Jumlah Dokumen L2', )
 

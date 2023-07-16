@@ -167,9 +167,9 @@ def main2():
     df = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=769831016")
     df['SOBAT ID'] = df['SOBAT ID'].astype(str)
 
-    st.markdown("Progress PPL")
+    df_show = df[["Nama Koseka", "Nama PPL", "SOBAT ID", "Progres RTUP Juni", "Progres RTUP Juli", "Progres RTUP Kumulatif"]]
 
-    st.dataframe(df)
+    st.dataframe(df_show)
 
 page_names_to_funcs = {
     "Progress Wilayah": main_page,

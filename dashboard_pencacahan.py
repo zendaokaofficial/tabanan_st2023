@@ -62,7 +62,7 @@ def main_page():
 
         df_show = df[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
         df_show.reset_index(drop=True, inplace=True)
-        st.dataframe(df_show.style.apply(highlight_survived, axis=1))
+        st.dataframe(df_show)
 
         csv = convert_df(df_show)
 
@@ -106,7 +106,7 @@ def main_page():
 
         df_show = df11[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
         df_show.reset_index(drop=True, inplace=True)
-        st.dataframe(df_show.style.apply(highlight_survived, axis=1))
+        st.dataframe(df_show)
         
         csv = convert_df(df_show)
 
@@ -150,7 +150,7 @@ def main_page():
 
         df_show = df21[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
         df_show.reset_index(drop=True, inplace=True)
-        st.dataframe(df_show.style.apply(highlight_survived, axis=1))
+        st.dataframe(df_show)
 
         csv = convert_df(df_show)
 

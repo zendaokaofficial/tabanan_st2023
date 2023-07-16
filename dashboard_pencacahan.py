@@ -167,9 +167,39 @@ def main2():
     df = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=769831016")
     df['SOBAT ID'] = df['SOBAT ID'].astype(str)
 
-    df_show = df[["Nama Koseka", "Nama PPL", "SOBAT ID", "Progres RTUP Juni", "Progres RTUP Juli", "Progres RTUP Kumulatif"]]
+    lstKoseka = list(df["Nama Koseka"].unique())
+    lstKoseka.insert(0, "PILIH KOSEKA")
 
-    st.dataframe(df_show)
+    PilihKoseka = st.selectbox("Nama Koseka", lstKoseka, 0)
+
+    if (PilihKoseka != "PILIH KOSEKA"):
+        df = df[df["Nama Koseka"] == PilihKoseka].reset_index(drop=True, inplace=True)
+        df_show = df[["Nama Koseka", "Nama PPL", "SOBAT ID", "Progres RTUP Juni", "Progres RTUP Juli", "Progres RTUP Kumulatif"]]
+        st.dataframe(df_show)
+
+        csv = convert_df(df_show)
+
+        st.download_button(
+        "Press to Download",
+        csv,
+        f"{Pilih Koseka} Progres PPL.csv",
+        "text/csv",
+        key='download-csv'
+        )
+       
+    else:
+        df_show = df[["Nama Koseka", "Nama PPL", "SOBAT ID", "Progres RTUP Juni", "Progres RTUP Juli", "Progres RTUP Kumulatif"]]
+        st.dataframe(df_show)
+
+        csv = convert_df(df_show)
+
+        st.download_button(
+        "Press to Download",
+        csv,
+        f"Progres PPL.csv",
+        "text/csv",
+        key='download-csv'
+        )
 
 page_names_to_funcs = {
     "Progress Wilayah": main_page,

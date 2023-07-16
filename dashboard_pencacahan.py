@@ -173,7 +173,8 @@ def main2():
     PilihKoseka = st.selectbox("Nama Koseka", lstKoseka, 0)
 
     if (PilihKoseka != "PILIH KOSEKA"):
-        df = df[df["Nama Koseka"] == PilihKoseka].reset_index(drop=True, inplace=True)
+        df = df[df["Nama Koseka"] == PilihKoseka]
+        df.reset_index(drop=True, inplace=True)
         df_show = df[["Nama Koseka", "Nama PPL", "SOBAT ID", "Progres RTUP Juni", "Progres RTUP Juli", "Progres RTUP Kumulatif"]]
         st.dataframe(df_show)
 

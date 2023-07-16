@@ -14,7 +14,7 @@ def convert_df(df):
    return df.to_csv(index=False).encode('utf-8')
     
 def highlight_survived(s):
-    if ((s['Jumlah Dokumen L2 PPL ke PML'] > s['Jumlah Dokumen L2 Terpakai']) or (s['Jumlah Dokumen L2 PML ke Koseka'] > s['Jumlah Dokumen L2 Terpakai']) or (s['Jumlah Dokumen L2 PML ke Koseka'] > s['Jumlah Dokumen L2 PPL ke PML']) or (s['Jumlah RTUP Tercacah'] > s['Jumlah Dokumen L2 Terpakai'])):
+    if ((s['Jumlah Dokumen L2 PPL ke PML'] > s['Jumlah Dokumen L2 Terpakai'])):
         return ['background-color: orange']*len(s) 
 
 st.set_page_config(layout = "wide")

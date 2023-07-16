@@ -182,7 +182,7 @@ def main2():
         st.download_button(
         "Press to Download",
         csv,
-        f"{Pilih Koseka} Progres PPL.csv",
+        f"{PilihKoseka} Progres PPL.csv",
         "text/csv",
         key='download-csv'
         )

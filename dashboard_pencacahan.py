@@ -19,7 +19,7 @@ def highlight_survived(s):
 
 st.set_page_config(layout = "wide")
 
-def main_page()
+def main_page():
     with st.sidebar:
         lstKecamatan = list(df["Nama Kecamatan"].unique())
         lstKecamatan.insert(0, "PILIH KECAMATAN")

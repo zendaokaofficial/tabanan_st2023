@@ -51,8 +51,8 @@ def main_page():
         style_metric_cards(border_left_color = '#1E1E1E')
 
         ## Bar Chart
-        df_tabel = df.groupby(["Kode Kecamatan", "Nama Kecamatan"])[['Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani']].agg('sum').reset_index()
-        df_tabel["Persentase"] = round(df_tabel["Jumlah Ruta Tercacah"]/df_tabel["Jumlah Prelist KK Tani"] * 100, 2)
+        df_tabel = df.groupby(["Kode Kecamatan", "Nama Kecamatan"])[['Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani']].agg('sum').reset_index()
+        df_tabel["Persentase"] = round(df_tabel["Jumlah RTUP Tercacah"]/df_tabel["Jumlah Prelist KK Tani"] * 100, 2)
         df_tabel2 = pd.DataFrame()
         df_tabel2["Kecamatan"] = df_tabel["Kode Kecamatan"].astype(str) + " - " + df_tabel["Nama Kecamatan"]
         df_tabel2["Persentase"] = df_tabel["Persentase"]
@@ -60,7 +60,7 @@ def main_page():
 
         st.code(code, language='python')
 
-        df_show = df[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
+        df_show = df[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
         df_show.reset_index(drop=True, inplace=True)
         st.dataframe(df_show)
 
@@ -89,8 +89,8 @@ def main_page():
         style_metric_cards(border_left_color = '#1E1E1E')
 
         ## Bar Chart
-        df_tabel = df11.groupby(["Kode Desa", "Nama Desa"])[['Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani']].agg('sum').reset_index()
-        df_tabel["Persentase"] = round(df_tabel["Jumlah Ruta Tercacah"]/df_tabel["Jumlah Prelist KK Tani"] * 100, 2)
+        df_tabel = df11.groupby(["Kode Desa", "Nama Desa"])[['Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani']].agg('sum').reset_index()
+        df_tabel["Persentase"] = round(df_tabel["Jumlah RTUP Tercacah"]/df_tabel["Jumlah Prelist KK Tani"] * 100, 2)
         df_tabel2 = pd.DataFrame()
         df_tabel2["Desa"] = df_tabel["Kode Desa"].astype(str) + " - " + df_tabel["Nama Desa"]
         df_tabel2["Persentase"] = df_tabel["Persentase"]
@@ -104,7 +104,7 @@ def main_page():
         col3.metric(label = "Jumlah Dokumen L2 dari PML ke Koseka", value = sum(df11['Jumlah Dokumen L2 dari PML ke Koseka']))
         style_metric_cards(border_left_color = '#1E1E1E')
 
-        df_show = df11[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
+        df_show = df11[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
         df_show.reset_index(drop=True, inplace=True)
         st.dataframe(df_show)
         
@@ -134,8 +134,8 @@ def main_page():
         style_metric_cards(border_left_color = '#1E1E1E')
 
         ## Bar Chart
-        df_tabel = df21.groupby(["Kode SLS", "Nama SLS"])[['Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani']].agg('sum').reset_index()
-        df_tabel["Persentase"] = round(df_tabel["Jumlah Ruta Tercacah"]/df_tabel["Jumlah Prelist KK Tani"] * 100, 2)
+        df_tabel = df21.groupby(["Kode SLS", "Nama SLS"])[['Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani']].agg('sum').reset_index()
+        df_tabel["Persentase"] = round(df_tabel["Jumlah RTUP Tercacah"]/df_tabel["Jumlah Prelist KK Tani"] * 100, 2)
         df_tabel2 = pd.DataFrame()
         df_tabel2["SLS"] = df_tabel["Kode SLS"].astype(str) + " - " + df_tabel["Nama SLS"]
         df_tabel2["Persentase"] = df_tabel["Persentase"]
@@ -148,7 +148,7 @@ def main_page():
         col3.metric(label = "Jumlah Dokumen L2 dari PML ke Koseka", value = sum(df21['Jumlah Dokumen L2 dari PML ke Koseka']))
         style_metric_cards(border_left_color = '#1E1E1E')
 
-        df_show = df21[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah Ruta Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
+        df_show = df21[["ID SLS", 'Nama Kecamatan', 'Nama Desa', 'Nama SLS', 'Jumlah RTUP Tercacah', 'Jumlah Prelist KK Tani', 'Jumlah Dokumen L2 Terpakai', 'Jumlah Dokumen L2 PPL ke PML', 'Jumlah Dokumen L2 dari PML ke Koseka', 'Sudah Selesai', 'Sudah Isi Repo']]
         df_show.reset_index(drop=True, inplace=True)
         st.dataframe(df_show)
 

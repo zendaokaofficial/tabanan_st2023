@@ -9,7 +9,7 @@ sheet_id = "14W9C-A3m-wfwd2ZwSo9manpB6S-2n0cbSVW8TRqOLUA"
 df = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=1460697118")
 df['ID SLS'] = df['ID SLS'].astype(str)
 
-@st.experimental_memo
+@st.cache_data
 def convert_df(df):
    return df.to_csv(index=False).encode('utf-8')
     
